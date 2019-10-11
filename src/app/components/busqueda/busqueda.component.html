@@ -1,0 +1,29 @@
+<div class="row" *ngIf="heroe.length === 0">
+  <div class="col-md-12" >
+    <div class="alert alert-info"  role="alert">
+        No existen resulatados de:     {{termino}}
+    </div>
+  </div>
+
+
+</div>
+
+<div *ngFor="let Heores of heroe" >
+  <h1  height ="1200px" class="row animated fadeIn fast">  {{Heores.nombre|uppercase}} <SMAll>({{Heores.aparicion |date:'y'}})</SMAll></h1>
+    <hr>
+<div class="row animated fadeIn fast" >
+  <div class="col-md-4">
+  <img [src]="Heores.img" class="img-fluid" alt="heroe.nombre">
+  <br><br>
+  <a [routerLink]="['/Heroes']" class="btn btn-outline-danger btn-block">Regresar</a>
+  </div>
+  <div class="col-md-8">
+    <h3>{{Heores.nombre}}</h3>
+    <hr>
+    <p>{{Heores.bio}}</p>
+    <div>
+      <img *ngIf="Heores.casa == 'DC' " src="assets/img/dc-logo.jpg" alt="DC" class="img-logo">
+     <img *ngIf="Heores.casa == 'Marvel' " src="assets/img/Marvel.jpg" alt="MARVEL" class="img-logo" >
+    </div>
+  </div>
+</div>
